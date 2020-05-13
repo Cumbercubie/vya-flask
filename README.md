@@ -13,4 +13,7 @@
     (Using ```pip install package_name```).
     
 # Run Flask:
-`python app.py`
+-   Open cmd/Terminal/Powershell and type `python app.py`.
+-   There will be a line that says `Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)`
+-   -> Copy the http address and paste it on your browser, or ctrl-click on the link to go to your page.
+-   Go to http://127.0.0.1:5000/reddit and you will receive a sample json string which is the comments  from this submission: 3g1jfi
