@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, json
 import os
 
 #Init app
@@ -16,7 +16,9 @@ def extract():
     sub_id = "3g1jfi"
     from Extractor import RedditExtractor
     red = RedditExtractor()
-    cmts = red.getComments(sub_id)
+    # getAllComments(sub_id,limit), limit = your desired replies + 2,
+    # idk why, it works like that.
+    cmts = json.dumps(red.getAllComments(sub_id,7))
     # return render_template('reddit.html',cmts)
     return cmts
 #Run server

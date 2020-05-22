@@ -9,6 +9,7 @@ pylint = "*"
 [packages]
 flask = "*"
 praw = "*"
+validator-collection = "*"
 
 [requires]
 python_version = "3.7"
