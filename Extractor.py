@@ -58,15 +58,15 @@ class RedditExtractor:
             cmts['upvotes'] = str(top_level_comment.score)
         return cmts
     
-    def getAllComments(self,url,limit):
+    def getAllComments(self,url,**kwargs):
         ListAllComments=[]
-        count = limit # for the sake of being afraid limit would gone wrong
+        count = kwargs['limit'] # for the sake of being afraid limit would gone wrong
         sub_id = splitUrl(url)
         submission = self.reddit.submission(id=sub_id)
         submission.comments.replace_more(limit=5)
         # listCmts = submission.comments
         for comment in submission.comments[:count]:
-            ListAllComments.append(getCommentReplies(comment,limit))
+            ListAllComments.append(getCommentReplies(comment,count))
         return ListAllComments
 
 

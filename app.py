@@ -13,12 +13,17 @@ def get():
 
 @app.route('/reddit',methods=['GET'])
 def extract():
-    sub_id = "3g1jfi"
+    
+    
+    # sub_id = "3g1jfi" 
+    sub_id = str(request.args.get('subId'))
+    limit = int(request.args.get('limit'))
     from Extractor import RedditExtractor
     red = RedditExtractor()
-    # getAllComments(sub_id,limit), limit = your desired replies + 2,
-    # idk why, it works like that.
-    cmts = json.dumps(red.getAllComments(sub_id,7))
+    #getAllComments(sub_id,limit), limit = your desired replies + 2,
+    #idk why, it works like that.'''
+    cmts = json.dumps(red.getAllComments(sub_id,limit=limit))
+    # cmts = red.getComments(sub_id)
     # return render_template('reddit.html',cmts)
     return cmts
 #Run server
